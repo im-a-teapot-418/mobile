@@ -50,6 +50,7 @@ class HomeScreen extends React.Component {
 
 export default StackNavigator({
   HomeScreen: {screen: HomeScreen},
+  ComponentCheckInScreen: {screen: ComponentCheckInScreen},
 }, {
   cardStyle: {
     opacity: 1,
