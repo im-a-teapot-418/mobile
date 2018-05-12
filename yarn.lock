@@ -493,22 +493,26 @@
     prop-types "^15.6.1"
 
 "@storybook/addon-storyshots@^3.2.16":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.4.3.tgz#23f2be8e6d8d281c6a65868d00abf9a0cac3babf"
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.4.4.tgz#cff74f2d35a424e3a22684fc05b1bcbb3d377b6c"
   dependencies:
-    "@storybook/channels" "3.4.3"
-    "@storybook/node-logger" "3.4.3"
+    "@storybook/channels" "3.4.4"
+    "@storybook/node-logger" "3.4.4"
     babel-runtime "^6.26.0"
     glob "^7.1.2"
     global "^4.3.2"
-    jest-image-snapshot "^2.4.0"
+    jest-image-snapshot "^2.4.1"
     jest-specific-snapshot "^0.5.0"
     puppeteer "^1.2.0"
     read-pkg-up "^3.0.0"
 
-"@storybook/addons@3.4.3", "@storybook/addons@^3.2.16":
+"@storybook/addons@3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.3.tgz#537311d621cb3d582d581a160813608d6b27e4bd"
+
+"@storybook/addons@^3.2.16":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.4.tgz#5f3203791df83499247a8bc4034788943500ff16"
 
 "@storybook/channel-postmessage@3.4.3":
   version "3.4.3"
@@ -525,9 +529,13 @@
     "@storybook/channels" "3.4.3"
     global "^4.3.2"
 
-"@storybook/channels@3.4.3", "@storybook/channels@^3.2.16":
+"@storybook/channels@3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.4.3.tgz#045fc72787b38dd71210b5fb20c9daa739a2f601"
+
+"@storybook/channels@3.4.4", "@storybook/channels@^3.2.16":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.4.4.tgz#a0492404d21231dcbe12716707472dd4549fb37a"
 
 "@storybook/client-logger@3.4.3":
   version "3.4.3"
@@ -584,6 +592,12 @@
 "@storybook/node-logger@3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-3.4.3.tgz#d8014cfbaca0e6b5bbeb05f419ba08363c3aa5f6"
+  dependencies:
+    npmlog "^4.1.2"
+
+"@storybook/node-logger@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-3.4.4.tgz#f4378e63d3fb6addc76f9a8baaf5be4dae7811f4"
   dependencies:
     npmlog "^4.1.2"
 
@@ -5994,7 +6008,7 @@ jest-haste-map@^22.4.3:
     micromatch "^2.3.11"
     sane "^2.0.0"
 
-jest-image-snapshot@^2.4.0:
+jest-image-snapshot@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/jest-image-snapshot/-/jest-image-snapshot-2.4.1.tgz#9da6a86515a9a6fec7c4964b7a6859cd366c6459"
   dependencies:

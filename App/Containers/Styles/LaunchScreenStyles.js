@@ -14,5 +14,11 @@ export default StyleSheet.create({
   },
   centered: {
     alignItems: 'center'
+  },
+  logoSubText: {
+    color: "#fff",
+    fontSize: 26,
+    fontWeight: "500",
+    fontFamily: "Verdana"
   }
 })
