@@ -3,8 +3,29 @@ import { View, ScrollView, Text, Image, TouchableOpacity } from 'react-native'
 import { Images } from './MobileTheme'
 import styles from './Styles/UserActivitiesScreenStyles'
 import SampleList from '../../App/Containers/SampleList'
+import API from '../../App/Services/Api'
+import { Container, Content } from 'native-base'
+
 
 class UserActivitiesScreen extends React.Component {
+  api = {}
+
+  state = {
+    data: []
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.api = API.create()
+  }
+
+  componentWillMount() {
+    this.api.getUserActivities(2).then((response) => {
+      this.setState({ data: response.data })
+    })
+  }
+
   render () {
     return (
       <View style={[styles.container, styles.mainContainer]}>
@@ -17,13 +38,16 @@ class UserActivitiesScreen extends React.Component {
         }}>
           <Image source={Images.backButton} />
         </TouchableOpacity>
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+
+        <Container>
           <View style={{alignItems: 'center', paddingTop: 60}}>
-            <Image source={Images.faq} style={styles.logo} />
-            <Text style={styles.titleText}>FAQ</Text>
+            <Image source={Images.api} style={styles.logo} />
+            <Text style={styles.titleText}>User Activities</Text>
           </View>
-          <SampleList />
-        </ScrollView>
+          <Content>
+            <SampleList data={this.state.data} />
+          </Content>
+        </Container>
       </View>
     )
   }

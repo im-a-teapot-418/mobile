@@ -1,8 +1,7 @@
 import React from 'react'
 import { View, FlatList, ActivityIndicator } from 'react-native';
-import { List, ListItem, Body, Text } from 'native-base';
+import { List, ListItem, Body, Text, Right, Left, Icon } from 'native-base';
 import { connect } from 'react-redux'
-import { AppLoading } from 'expo';
 
 class SampleList extends React.PureComponent {
 
@@ -16,7 +15,6 @@ class SampleList extends React.PureComponent {
       {title: 'Sixth Title', description: 'Sixth Description'},
       {title: 'Seventh Title', description: 'Seventh Description'}
     ],
-    fontsAreLoaded: false
   }
 
   async componentWillMount() {
@@ -26,23 +24,31 @@ class SampleList extends React.PureComponent {
     });
   }
 
-  keyExtractor = (item, index) => index
+  keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => (
-    <ListItem>
+    <ListItem icon>
+      <Left>
+        <Icon name="plane" style={{color: 'green'}} />
+      </Left>
       <Body>
-        <Text>{item.title}</Text>
-        <Text note>{item.description}</Text>
+        <Text style={{color: '#fff'}}>{item.facility.name}</Text>
+        <Text note>+100 pts</Text>
       </Body>
+      <Right>
+        <Text note>{item.human_date}</Text>
+        <Icon name="arrow-forward" />
+      </Right>
     </ListItem>
   )
 
   render () {
-    const { fontsAreLoaded } = this.state
-    return !fontsAreLoaded ? <AppLoading /> : (
-      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
+    const data = this.props.data;
+
+    return (
+      <List>
         <FlatList
-          data={this.state.dataObjects}
+          data={data}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
         />
