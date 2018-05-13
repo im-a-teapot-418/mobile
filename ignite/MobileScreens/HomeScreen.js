@@ -15,6 +15,10 @@ class HomeScreen extends React.Component {
     this.props.navigation.navigate('ComponentCheckInScreen')
   }
 
+  openActivities = () => {
+    this.props.navigation.navigate('UserActivitiesScreen')
+  }
+
   render () {
     return (
       <View style={styles.mainContainer}>
@@ -37,7 +41,7 @@ class HomeScreen extends React.Component {
             are available below.
           </Text>
           <View style={styles.buttonsContainer}>
-            <ButtonBox onPress={this.openComponents} style={styles.componentButton} image={Images.api} text='Activities' />
+            <ButtonBox onPress={this.openActivities} style={styles.componentButton} image={Images.api} text='Activities' />
             <ButtonBox onPress={this.openCheckIn} style={styles.usageButton} image={Images.deviceInfo} text='Check In!' />
           </View>
         </ScrollView>
