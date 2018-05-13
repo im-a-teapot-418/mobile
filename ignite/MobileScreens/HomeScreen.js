@@ -3,6 +3,7 @@ import { ScrollView, Text, Image, View, TouchableOpacity } from 'react-native'
 import { Images } from './MobileTheme'
 import ButtonBox from './ButtonBox'
 import { StackNavigator } from 'react-navigation'
+import API from '../../App/Services/Api'
 // Screens
 import ComponentCheckInScreen from './ComponentCheckInScreen'
 import UserActivitiesScreen from './UserActivitiesScreen'
@@ -11,6 +12,18 @@ import UserActivitiesScreen from './UserActivitiesScreen'
 import styles from './Styles/HomeScreenStyles'
 
 class HomeScreen extends React.Component {
+  api = {}
+
+  state = {
+    user: []
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.api = API.create()
+  }
+
   openCheckIn = () => {
     this.props.navigation.navigate('ComponentCheckInScreen')
   }
@@ -19,7 +32,15 @@ class HomeScreen extends React.Component {
     this.props.navigation.navigate('UserActivitiesScreen')
   }
 
+  componentWillMount() {
+    this.api.getUserData(2).then((response) => {
+      this.setState({ user: response.data })
+    })
+  }
+
   render () {
+    const user = this.state.user;
+
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
@@ -33,13 +54,13 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={styles.container}>
           <View style={styles.centered}>
-            <Image source={Images.igniteClear} style={styles.logo} />
+            <Image source={Images.logo} style={styles.logo} />
           </View>
 
-          <Text style={styles.sectionText}>
-            Default screens for development, debugging, and alpha testing
-            are available below.
+          <Text style={styles.greetingText}>
+            Hello, {user.first_name} {user.last_name}! You have collected {user.points} so far!
           </Text>
+
           <View style={styles.buttonsContainer}>
             <ButtonBox onPress={this.openActivities} style={styles.componentButton} image={Images.api} text='Activities' />
             <ButtonBox onPress={this.openCheckIn} style={styles.usageButton} image={Images.deviceInfo} text='Check In!' />

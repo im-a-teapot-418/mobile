@@ -36,6 +36,7 @@ const create = (baseURL = 'http://1188b0fb.ngrok.io') => {
   //
   const postCheckIn = (user_id, qr_code) => api.post('/qr_code/validate', { user_id: user_id, qr_code: qr_code })
   const getUserActivities = (user_id) => api.get('/history', { user_id: user_id })
+  const getUserData = (user_id) => api.get('/users/' + user_id)
 
   // ------
   // STEP 3
@@ -52,7 +53,8 @@ const create = (baseURL = 'http://1188b0fb.ngrok.io') => {
   return {
     // a list of the API functions from step 2
     postCheckIn,
-    getUserActivities
+    getUserActivities,
+    getUserData
   }
 }
 

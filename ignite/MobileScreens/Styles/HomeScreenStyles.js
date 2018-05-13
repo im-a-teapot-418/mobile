@@ -50,6 +50,15 @@ export default StyleSheet.create({
     marginVertical: Metrics.doubleBaseMargin,
     color: Colors.text
   },
+  greetingText: {
+    textAlign: 'center',
+    fontFamily: Fonts.base,
+    fontSize: 16,
+    marginHorizontal: Metrics.baseMargin,
+    lineHeight: 30,
+    marginVertical: Metrics.doubleBaseMargin,
+    color: Colors.text
+  },
   banner: {
     position: 'absolute',
     width: Metrics.screenWidth,
