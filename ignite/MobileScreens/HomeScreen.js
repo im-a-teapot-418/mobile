@@ -7,6 +7,7 @@ import API from '../../App/Services/Api'
 // Screens
 import ComponentCheckInScreen from './ComponentCheckInScreen'
 import UserActivitiesScreen from './UserActivitiesScreen'
+import ComponentActivitiesNearMe from './ComponentActivitiesNearMe'
 
 // Styles
 import styles from './Styles/HomeScreenStyles'
@@ -38,6 +39,10 @@ class HomeScreen extends React.Component {
     })
   }
 
+  openActivitiesNearMe = () => {
+    this.props.navigation.navigate('ComponentActivitiesNearMe')
+  }
+
   render () {
     const user = this.state.user;
 
@@ -65,6 +70,10 @@ class HomeScreen extends React.Component {
             <ButtonBox onPress={this.openActivities} style={styles.componentButton} image={Images.api} text='Activities' />
             <ButtonBox onPress={this.openCheckIn} style={styles.usageButton} image={Images.deviceInfo} text='Check In!' />
           </View>
+          <View style={styles.buttonsContainer}>
+            <ButtonBox onPress={this.openActivitiesNearMe} style={styles.apiButton} image={Images.api} text='Activities Near Me' />
+            <ButtonBox onPress={this.openActivitiesNearMe} style={styles.apiButton} image={Images.api} text='Activities Near Me' />
+          </View>
         </ScrollView>
         <View style={styles.banner}>
           <Text style={styles.bannerLabel}>Made with ❤ by I'm A Teapot - 418</Text>
@@ -78,6 +87,7 @@ export default StackNavigator({
   HomeScreen: {screen: HomeScreen},
   ComponentCheckInScreen: {screen: ComponentCheckInScreen},
   UserActivitiesScreen: {screen: UserActivitiesScreen},
+  ComponentActivitiesNearMe: {screen: ComponentActivitiesNearMe},
 }, {
   cardStyle: {
     opacity: 1,
