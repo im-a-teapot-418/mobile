@@ -5,6 +5,7 @@ import ButtonBox from './ButtonBox'
 import { StackNavigator } from 'react-navigation'
 // Screens
 import ComponentCheckInScreen from './ComponentCheckInScreen'
+import UserActivitiesScreen from './UserActivitiesScreen'
 
 // Styles
 import styles from './Styles/HomeScreenStyles'
@@ -51,6 +52,7 @@ class HomeScreen extends React.Component {
 export default StackNavigator({
   HomeScreen: {screen: HomeScreen},
   ComponentCheckInScreen: {screen: ComponentCheckInScreen},
+  UserActivitiesScreen: {screen: UserActivitiesScreen},
 }, {
   cardStyle: {
     opacity: 1,

@@ -17,6 +17,7 @@ class ComponentCheckInScreen extends React.Component {
 
   state = {
     hasCameraPermission: null,
+    hasScannedCode: false
   }
 
   constructor(props) {
@@ -58,11 +59,14 @@ class ComponentCheckInScreen extends React.Component {
   }
 
   _handleBarCodeRead = async ({ type, data }) => {
+    if(this.state.hasScannedCode) return;
+
+    this.setState({ hasScannedCode: true })
     await delay(500)
     this.api.postCheckIn(2, data).then((response) => {
       this.props.navigation.goBack()
-      if(!response.data.success) {
-        alert(response.data.error.message)
+      if(response.data.success) {
+        this.props.navigation.navigate('UserActivitiesScreen')
       }
     })
   }

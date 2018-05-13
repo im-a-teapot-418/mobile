@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'http://d7efc9df.ngrok.io/') => {
+const create = (baseURL = 'http://1188b0fb.ngrok.io') => {
   // ------
   // STEP 1
   // ------
@@ -35,6 +35,7 @@ const create = (baseURL = 'http://d7efc9df.ngrok.io/') => {
   // way at this level.
   //
   const postCheckIn = (user_id, qr_code) => api.post('/qr_code/validate', { user_id: user_id, qr_code: qr_code })
+  const getUserActivities = (user_id) => api.get('/history', { user_id: user_id })
 
   // ------
   // STEP 3
@@ -50,7 +51,8 @@ const create = (baseURL = 'http://d7efc9df.ngrok.io/') => {
   //
   return {
     // a list of the API functions from step 2
-    postCheckIn
+    postCheckIn,
+    getUserActivities
   }
 }
 
