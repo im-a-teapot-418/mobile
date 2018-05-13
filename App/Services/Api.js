@@ -55,11 +55,8 @@ const create = (baseURL = 'http://1188b0fb.ngrok.io') => {
     // a list of the API functions from step 2
     postCheckIn,
     getUserActivities,
-<<<<<<< HEAD
-    getUserData
-=======
+    getUserData,
     getFacilities
->>>>>>> Add map progress.
   }
 }
 
